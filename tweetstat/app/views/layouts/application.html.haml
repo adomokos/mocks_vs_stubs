@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
+    %title Business Rules
+    = stylesheet_link_tag 'master'
+    // = stylesheet_link_tag 'tablecloth.css'
+    // = javascript_include_tag 'tablecloth.js'
+  %body
+    #wrap
+      #top
+        %h2
+          %a{:href => '/'} Business Rules [BR]
+      #content
+        #wrapper
+          = yield
+      #clear
+      #footer
+        %p Copyright 2010 Business Rules [BR]
