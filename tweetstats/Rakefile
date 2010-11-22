@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Tweetstat::Application.load_tasks
+Tweetstats::Application.load_tasks
