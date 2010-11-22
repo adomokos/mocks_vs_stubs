@@ -6,7 +6,7 @@ describe Order do
     @warehouse = stub('warehouse_stub', {:quantity_at => 50, :set_quantity_at => true})
   end
 
-  it "fills the order with enough item at the warehouse location" do
+  it "fills the order with enough items at the warehouse location" do
     order = Order.new(:Cleveland, 50)
 
     order.fill(@warehouse)

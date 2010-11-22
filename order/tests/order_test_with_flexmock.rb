@@ -3,7 +3,7 @@ require 'test/unit'
 require 'flexmock/test_unit'
 
 class TestOrder < Test::Unit::TestCase
-  def test_fills_order_with_enough_item_at_location
+  def test_fills_order_with_enough_items_at_location
     order = Order.new(:Cleveland, 50)
     warehouse = flexmock('warehouse')
 
@@ -14,7 +14,7 @@ class TestOrder < Test::Unit::TestCase
     assert order.filled?
   end
 
-  def test_does_not_fill_order_with_not_enough_item_at_location
+  def test_does_not_fill_order_with_not_enough_items_at_location
     order = Order.new(:Cleveland, 51)
     warehouse = flexmock('warehouse')
 

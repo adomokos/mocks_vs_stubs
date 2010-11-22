@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 require 'order'
 
 describe Order do
-  it "fills the order with enough item at the warehouse location" do
+  it "fills the order with enough items at the warehouse location" do
     order = Order.new(:Cleveland, 50)
     warehouse = mock(:warehouse)
 
