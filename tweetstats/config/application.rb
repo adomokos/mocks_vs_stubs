@@ -13,7 +13,7 @@ module Tweetstats
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -42,5 +42,14 @@ module Tweetstats
     config.generators do |g|
       g.test_framework :rspec
     end
+
+    # Twitter OAuth settings
+    TWOAUTH_SITE = 'http://twitter.com'
+    # Twitter OAuth callback default
+    TWOAUTH_CALLBACK = ENV['TWOAUTH_CALLBACK']
+    # Twitter OAuth Consumer key
+    TWOAUTH_KEY = ENV['TWOAUTH_KEY']
+    # Twitter OAuth Consumer secret
+    TWOAUTH_SECRET = ENV['TWOAUTH_SECRET']
   end
 end
