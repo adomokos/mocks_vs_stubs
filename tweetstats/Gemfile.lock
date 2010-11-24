@@ -146,6 +146,7 @@ DEPENDENCIES
   escape_utils
   factory_girl
   haml
+  json
   launchy
   oauth
   rails (= 3.0.1)
