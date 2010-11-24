@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  # User this example: https://github.com/tardate/rails-twitter-oauth-sample
   include OauthSystem
 
   before_filter :oauth_login_required, :except => [ :callback, :signout, :index ]
