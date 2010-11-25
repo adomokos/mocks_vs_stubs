@@ -14,7 +14,10 @@ class TwitterOauth
 
   # initialize the oauth consumer, and also access token if user_token and user_secret provided
   def initialize( user_token = nil, user_secret = nil )
-    @consumer = OAuth::Consumer.new(TWOAUTH_KEY, TWOAUTH_SECRET, { :site=> TWOAUTH_SITE  })
+    twoauth_key = Tweetstats::Application.config.twitter_oauth_key
+    twoauth_secret = Tweetstats::Application.config.twitter_oauth_secret
+    twoauth_site = Tweetstats::Application.config.twitter_oauth_site
+    @consumer = OAuth::Consumer.new(twoauth_key, twoauth_secret, { :site=> twoauth_site  })
     @access_token = OAuth::AccessToken.new( @consumer, user_token, user_secret ) if user_token && user_secret
   end 
 
@@ -44,7 +47,7 @@ class TwitterOauth
   end
 
   # gets a request token to be used for the authorization request to twitter 
-  def get_request_token( oauth_callback = TWOAUTH_CALLBACK )
+  def get_request_token( oauth_callback = Tweetstats::Application.config.twitter_oauth_callback )
     self.consumer.get_request_token( :oauth_callback => oauth_callback )
   end
 

@@ -25,26 +25,26 @@ module OauthSystem
     raise OauthSystem::RequestError unless user_info['id'] && user_info['screen_name'] && user_info['profile_image_url']
     
     # We have an authorized user, save the information to the database.
-    @member = Member.find_by_screen_name(user_info['screen_name'])
-    if @member
-      @member.token = self.twitagent.access_token.token
-      @member.secret = self.twitagent.access_token.secret
-      @member.profile_image_url = user_info['profile_image_url']
+    @user = User.find_by_screen_name(user_info['screen_name'])
+    if @user
+      @user.token = self.twitagent.access_token.token
+      @user.secret = self.twitagent.access_token.secret
+      @user.profile_image_url = user_info['profile_image_url']
     else
-      @member = Member.new({ 
+      @user = User.new({ 
         :twitter_id => user_info['id'],
         :screen_name => user_info['screen_name'],
         :token => self.twitagent.access_token.token,
         :secret => self.twitagent.access_token.secret,
         :profile_image_url => user_info['profile_image_url'] })
     end
-    if @member.save!
-      self.current_user = @member   
+    if @user.save!
+      self.current_user = @user
     else
       raise OauthSystem::RequestError
     end
     # Redirect to the show page
-    redirect_to member_path(@member)
+    redirect_to member_path(@user)
     
   rescue
     # The user might have rejected this application. Or there was some other error during the request.

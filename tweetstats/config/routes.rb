@@ -1,5 +1,11 @@
 Tweetstats::Application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+      get 'callback'
+    end
+  end
+
+  match 'signout' => 'users#signout'
 
   root :to => "home#index"
   # The priority is based upon order of creation:

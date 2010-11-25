@@ -44,12 +44,12 @@ module Tweetstats
     end
 
     # Twitter OAuth settings
-    TWOAUTH_SITE = 'http://twitter.com'
+    config.twitter_oauth_site = 'http://twitter.com/'
     # Twitter OAuth callback default
-    TWOAUTH_CALLBACK = ENV['TWOAUTH_CALLBACK']
+    config.twitter_oauth_callback = 'http://localhost:3000/users/callback'
     # Twitter OAuth Consumer key
-    TWOAUTH_KEY = ENV['TWOAUTH_KEY']
+    config.twitter_oauth_key = ENV['CLERB_TWOAUTH_KEY']
     # Twitter OAuth Consumer secret
-    TWOAUTH_SECRET = ENV['TWOAUTH_SECRET']
+    config.twitter_oauth_secret = ENV['CLERB_TWOAUTH_SECRET']
   end
 end

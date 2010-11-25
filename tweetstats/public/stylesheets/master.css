@@ -156,3 +156,7 @@ label {
   color: #009900;
   padding-bottom: 10px;
 }
+
+#error {
+  color: #990000;
+}

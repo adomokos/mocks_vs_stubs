@@ -1,0 +1,18 @@
+%h2 Welcome back!
+
+%p
+  #info
+    %b Twitter ID:
+    = @user.twitter_id
+  #info
+    %b Screen Name:
+    = @user.screen_name
+  #info
+    %b User Token:
+    = @user.token
+  #info
+    %b User Secret:
+    = @user.secret
+
+%p
+  = link_to 'Sign-out', signout_path
