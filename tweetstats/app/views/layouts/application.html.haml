@@ -11,6 +11,15 @@
       #top
         %h2
           %a{:href => '/'} Tweet Stats [TS]
+      - if @current_user
+        #submenu
+          %ul
+            %li
+              = link_to 'send tweet', tweets_send_path
+            %li
+              = link_to 'followers', followers_path
+            %li
+              = link_to 'friends', friends_path
       #content
         #wrapper
           = yield

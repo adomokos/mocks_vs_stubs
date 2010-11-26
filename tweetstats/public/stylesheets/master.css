@@ -160,3 +160,31 @@ label {
 #error {
   color: #990000;
 }
+
+/**** Submenu ***/
+#submenu {
+  display: block;
+  float: right;
+}
+
+#submenu ul {
+  margin: 0;
+  list-style: none;
+}
+
+#submenu li {
+  display: block;
+  float: left;
+  white-space: nowrap;
+}
+
+#submenu li a {
+  padding: 5px 10px 25px 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#submenu li a:hover {
+  color: #CC0000;
+}
+

@@ -6,6 +6,10 @@ Tweetstats::Application.routes.draw do
   end
 
   match 'signout' => 'users#signout'
+  match 'tweets/send' => 'tweets#send'
+
+  resources :followers
+  resources :friends
 
   root :to => "home#index"
   # The priority is based upon order of creation:
