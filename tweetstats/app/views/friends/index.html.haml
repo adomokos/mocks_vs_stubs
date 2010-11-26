@@ -1,0 +1,17 @@
+%h2 Friends
+
+%p
+  = "You are following #{@friends.length} friends."
+%p
+- @friends.each_with_index do |friend, n|
+  - style = "height:52px; padding-left: 52px; background: url(#{ h friend['profile_image_url']}) no-repeat;"
+  %hr
+  #friend{:style => style}
+    %p
+      - screen_name_with_link = "<a href='http://twitter.com/#{friend['screen_name']}' target='_blank'>#{friend['screen_name']}</a>"
+      != "#{@friends.length-n}. #{screen_name_with_link}, friends: #{friend['friends_count']}, followers: #{friend['followers_count']}"
+    %p
+      - unless friend['status'].nil?
+        = "Latest update: #{friend['status']['text']}"
+      - else
+        = "No tweet yet"

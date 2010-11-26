@@ -42,4 +42,8 @@ class OauthService
     self.twitagent(user.token, user.secret).followers(user.screen_name)
   end
 
+  def friends(user)
+    self.twitagent(user.token, user.secret).friends(user.screen_name)
+  end
+
 end

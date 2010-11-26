@@ -25,4 +25,16 @@ class ApplicationController < ActionController::Base
       @current_user = false
     end
   end
+
+  def authenticated_user!
+    unless @current_user
+      flash[:error] = "You need to authtenticate yourself first!"
+      redirect_to root_path
+    end
+  end
+
+  def oauth_service
+    @oauth_service ||= OauthService.new(session)
+    @oauth_service
+  end
 end

@@ -8,4 +8,5 @@
   %hr
   #follower{:style => style}
     %p
-      = "#{@followers.length-n}. #{follower['screen_name']}, friends: #{follower['friends_count']}, followers: #{follower['followers_count']}"
+      - screen_name_with_link = "<a href='http://twitter.com/#{follower['screen_name']}' target='_blank'>#{follower['screen_name']}</a>"
+      != "#{@followers.length-n}. #{screen_name_with_link}, friends: #{follower['friends_count']}, followers: #{follower['followers_count']}"

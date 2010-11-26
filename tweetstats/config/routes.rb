@@ -1,4 +1,8 @@
 Tweetstats::Application.routes.draw do
+  get "tweets/index"
+
+  get "friends/index"
+
   resources :users do
     collection do
       get 'callback'
