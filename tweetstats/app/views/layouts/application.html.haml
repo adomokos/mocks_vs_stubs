@@ -15,11 +15,15 @@
         #submenu
           %ul
             %li
+              = link_to @current_user.screen_name, @current_user
+            %li
               = link_to 'send tweet', tweets_send_path
             %li
               = link_to 'followers', followers_path
             %li
               = link_to 'friends', friends_path
+            %li
+              = link_to 'sign out', signout_path
       #content
         #wrapper
           = yield

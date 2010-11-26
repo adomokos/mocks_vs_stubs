@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :current_user
+
   # Accesses the current user from the session.
   # Future calls avoid the database because nil is not equal to false.
   def current_user

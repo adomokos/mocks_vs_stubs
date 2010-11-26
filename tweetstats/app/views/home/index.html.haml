@@ -1,9 +1,13 @@
 %h2 Welcome!
-%p Please log on to Tweet Stat with your Twitter account.
+- if !@current_user
+  %p Please log on to Tweet Stat with your Twitter account.
 
 #error
   = flash[:error]
 #notice
   = flash[:notice]
 %p
-  = link_to image_tag( 'Sign-in-with-Twitter-darker.png', { :alt => 'Sign-in With Twitter' } ), new_user_path
+  - if @current_user
+    Welcome! We're glad you're here and using our app.
+  - else
+    = link_to image_tag( 'Sign-in-with-Twitter-darker.png', { :alt => 'Sign-in With Twitter' } ), new_user_path
