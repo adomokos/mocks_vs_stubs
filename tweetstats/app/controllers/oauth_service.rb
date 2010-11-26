@@ -38,4 +38,8 @@ class OauthService
     self.twitagent.access_token.secret
   end
 
+  def followers(user)
+    self.twitagent(user.token, user.secret).followers(user.screen_name)
+  end
+
 end

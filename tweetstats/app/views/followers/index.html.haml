@@ -1,0 +1,11 @@
+%h2 Followers
+
+%p
+  = "You have #{@followers.length} followers."
+%p
+- @followers.each_with_index do |follower, n|
+  - style = "height:52px; padding-left: 52px; background: url(#{ h follower['profile_image_url']}) no-repeat;"
+  %hr
+  #follower{:style => style}
+    %p
+      = "#{@followers.length-n}. #{follower['screen_name']}, friends: #{follower['friends_count']}, followers: #{follower['followers_count']}"
