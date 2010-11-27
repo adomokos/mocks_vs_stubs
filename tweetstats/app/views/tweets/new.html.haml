@@ -1,0 +1,13 @@
+%h2 Update status - send tweet
+
+#error
+  = flash[:error]
+%p
+  = form_tag tweets_path, :method => 'post'
+  %p
+    %b
+      = "What are you doing?"
+    #message
+      = text_area_tag 'tweet_message'
+    #submit
+      = submit_tag 'Post'

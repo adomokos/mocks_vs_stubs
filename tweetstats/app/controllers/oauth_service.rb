@@ -46,4 +46,9 @@ class OauthService
     self.twitagent(user.token, user.secret).friends(user.screen_name)
   end
 
+# Twitter REST API Method: statuses/update
+  def update_status!(user, status, in_reply_to_status_id = nil)
+    self.twitagent(user.token, user.secret).update_status!(status, in_reply_to_status_id)
+	end
+
 end

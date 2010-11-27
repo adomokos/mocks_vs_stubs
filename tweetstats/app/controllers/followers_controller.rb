@@ -9,8 +9,4 @@ class FollowersController < ApplicationController
     flash[:error] = "Twitter API failure (getting followers)"
   end
 
-  def oauth_service
-    @oauth_service ||= OauthService.new(session)
-    @oauth_service
-  end
 end

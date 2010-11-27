@@ -1,8 +1,4 @@
 Tweetstats::Application.routes.draw do
-  get "tweets/index"
-
-  get "friends/index"
-
   resources :users do
     collection do
       get 'callback'
@@ -10,10 +6,10 @@ Tweetstats::Application.routes.draw do
   end
 
   match 'signout' => 'users#signout'
-  match 'tweets/send' => 'tweets#send'
 
   resources :followers
   resources :friends
+  resources :tweets
 
   root :to => "home#index"
   # The priority is based upon order of creation:
