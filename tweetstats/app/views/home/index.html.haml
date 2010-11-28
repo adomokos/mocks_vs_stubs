@@ -10,4 +10,5 @@
   - if @current_user
     Welcome! We're glad you're here and using our app.
   - else
-    = link_to image_tag( 'Sign-in-with-Twitter-darker.png', { :alt => 'Sign-in With Twitter' } ), new_user_path
+    = link_to image_tag( 'Sign-in-with-Twitter-darker.png', 
+        { :alt => 'Sign-in With Twitter' } ), new_user_path, :id => 'sign_in_with_twitter'
