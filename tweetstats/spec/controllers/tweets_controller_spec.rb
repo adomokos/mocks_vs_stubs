@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe TweetsController do
 
-  describe "GET 'index'" do
+  describe "GET 'new'" do
     it "should be successful" do
-      get 'index'
+      pending
+      get 'new'
       response.should be_success
     end
   end

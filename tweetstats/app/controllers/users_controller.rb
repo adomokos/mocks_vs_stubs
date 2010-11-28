@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = self.current_user
   end
-  
+
   def signout
     self.current_user = false 
     flash[:notice] = "You have been logged out."
@@ -28,37 +28,26 @@ class UsersController < ApplicationController
   def callback
     user_info = self.oauth_service.get_user_info(params[:oauth_verifier])
 
-    # We have an authorized user, save the information to the database.
-    @user = User.find_by_screen_name(user_info['screen_name'])
-    if @user
-      @user.token = self.oauth_service.access_token
-      @user.secret = self.oauth_service.access_secret
-      @user.profile_image_url = user_info['profile_image_url']
-    else
-      @user = User.new({ 
+    # We have an authorized user, save the information in the database.
+    @user = User.save_user!({
         :twitter_id => user_info['id'],
         :screen_name => user_info['screen_name'],
         :token => self.oauth_service.access_token,
         :secret => self.oauth_service.access_secret,
-        :profile_image_url => user_info['profile_image_url'] })
-    end
-    if @user.save!
+        :profile_image_url => user_info['profile_image_url']
+    })
+    if @user
       self.current_user = @user
     else
       raise OauthSystem::RequestError
     end
     # Redirect to the show page
-    redirect_to user_path(@user)
+    redirect_to @user
   rescue Exception => e
     # The user might have rejected this application. Or there was some other error during the request.
     ::Rails.logger.error "Failed to get user info via OAuth - exception msg: #{e.message}"
     flash[:error] = "Twitter API failure (account login)"
     redirect_to root_url
-  end
-
-  def oauth_service
-    @oauth_service ||= OauthService.new(session)
-    @oauth_service
   end
 
 private

@@ -44,7 +44,7 @@ module Tweetstats
     end
 
     # Twitter OAuth settings
-    config.twitter_oauth_site = 'http://twitter.com/'
+    config.twitter_oauth_site = 'http://twitter.com'
     # Twitter OAuth callback default
     config.twitter_oauth_callback = 'http://localhost:3000/users/callback'
     # Twitter OAuth Consumer key

@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def oauth_service=(service)
+    @oauth_service = service
+  end
+
   def oauth_service
     @oauth_service ||= OauthService.new(session)
     @oauth_service
