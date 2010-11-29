@@ -139,7 +139,7 @@ class TwitterOauth
     begin
       friendspage = friends_by_cursor( user, cursor )
       page += 1
-      puts "page #{page}/cursor #{cursor} - found #{friendspage["users"].size} friends. Next cursor: #{friendspage["next_cursor"]}"
+      # puts "page #{page}/cursor #{cursor} - found #{friendspage["users"].size} friends. Next cursor: #{friendspage["next_cursor"]}"
       friends += friendspage["users"] if friendspage
       cursor = friendspage["next_cursor"]
     end until cursor == 0

@@ -21,6 +21,7 @@ FakeWeb.allow_net_connect = false
 FakeWeb.register_uri(:get, 'http://twitter.com/oauth/authorize?oauth_token=fake', :body => 'success')
 FakeWeb.register_uri(:post, 'http://twitter.com/oauth/access_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
 FakeWeb.register_uri(:get, 'http://twitter.com/account/verify_credentials.json', :response => File.join(::Rails.root.to_s, 'features', 'fixtures', 'verify_credentials.json'))
+FakeWeb.register_uri(:get, 'http://twitter.com/statuses/friends.json?screen_name=adomokos&cursor=-1', :response => File.join(::Rails.root.to_s, 'features', 'fixtures', 'friends.json'))
 
 # require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In

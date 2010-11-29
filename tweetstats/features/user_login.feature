@@ -1,7 +1,7 @@
 Feature: Login Users
   In order to access the full site
   As a user
-  I want be able to log on to the site with my twitter account
+  I want to be able to log on to the site with my twitter account
 
   Scenario: Login via Twitter
     Given I am on the home page
