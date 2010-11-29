@@ -25,4 +25,5 @@ group :development, :test, :cucumber do
   gem "shoulda"
   gem "factory_girl"
   gem "escape_utils"
+  gem "fakeweb"
 end

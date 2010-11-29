@@ -3,7 +3,8 @@ Feature: Login Users
   As a user
   I want be able to log on to the site with my twitter account
 
-  Scenario: User redirected to twitter on login
+  Scenario: Login via Twitter
     Given I am on the home page
     When I follow "sign_in_with_twitter"
-    Then I should be redirected to Twitter home page
+     And Twitter authorizes me
+    Then I should see "Welcome back!"
