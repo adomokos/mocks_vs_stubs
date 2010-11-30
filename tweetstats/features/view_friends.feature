@@ -8,4 +8,4 @@ Feature: View Friends
 
   Scenario: View friends
     When I follow "friends"
-    Then I should see "You are following 98 friends."
+    Then I should see "You are following 4 friends."
