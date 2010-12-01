@@ -9,7 +9,7 @@ class TestOrder < Test::Unit::TestCase
 
     warehouse.should_receive(:quantity_at).with(:Cleveland).and_return(50)
     warehouse.should_receive(:set_quantity_at).with(:Cleveland, 0)
-    
+
     order.fill(warehouse)
     assert order.filled?
   end
@@ -18,7 +18,6 @@ class TestOrder < Test::Unit::TestCase
     order = Order.new(:Cleveland, 51)
     warehouse = flexmock('warehouse')
 
-    # Note how warehouse behaviour is mockec with rspec mock
     warehouse.should_receive(:quantity_at).with(:Cleveland).and_return(50)
 
     order.fill(warehouse)

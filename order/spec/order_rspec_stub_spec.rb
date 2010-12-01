@@ -3,17 +3,18 @@ require 'order'
 
 describe Order do
   before(:each) do
-    @warehouse = stub('warehouse_stub', {:quantity_at => 50, :set_quantity_at => true})
+    @warehouse = stub('warehouse_stub', 
+                      {:quantity_at => 50, :set_quantity_at => true})
   end
 
-  it "fills the order with enough items at the warehouse location" do
+  it "fills the order with enough items in warehouse" do
     order = Order.new(:Cleveland, 50)
 
     order.fill(@warehouse)
     order.should be_filled
   end
 
-  it "does not fill the order with not enough items at the warehouse location" do
+  it "does not fill the order with not enough items" do
     order = Order.new(:Cleveland, 51)
 
     order.fill(@warehouse)

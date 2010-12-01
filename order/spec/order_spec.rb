@@ -25,15 +25,15 @@ describe Order do
     @warehouse.add(:Akron, 25)
   end
 
-  it "fills the order with enough items at the warehouse location" do
+  it "fills the order with enough items in warehouse" do
     order = Order.new(:Cleveland, 50)
     order.fill(@warehouse)
-    
+
     order.should be_filled
     @warehouse.quantity_at(:Cleveland).should == 0
   end
 
-  it "does not fill the order with not enough items at the warehouse location" do
+  it "does not fill the order with not enough items" do
     order = Order.new(:Cleveland, 51)
     order.fill(@warehouse)
 
